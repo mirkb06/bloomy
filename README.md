@@ -7,7 +7,6 @@ DigiBouquet allows users to create personalized digital flower bouquets with mea
 ## ✨ Features
 
 - **🌺 Flower Selection**: Choose from 12 different flowers, each with unique meanings:
-
   - 🌹 Rose (Love and passion) - June
   - 🌷 Tulip (Perfect love) - April
   - 🌸 Peony (Romance) - May
@@ -93,6 +92,60 @@ digibouquet/
 │   └── full/               # Full resolution images
 └── styles/                 # Global styles
 ```
+
+## 🚢 Deployment to Vercel
+
+This project is ready to deploy on Vercel. Follow these steps:
+
+### Option 1: Deploy via Vercel Dashboard
+
+1. **Push your code to GitHub** (already done!)
+
+2. **Go to [Vercel](https://vercel.com)**
+   - Sign in with your GitHub account
+   - Click "Add New Project"
+   - Import your `bloomy` repository
+
+3. **Configure Environment Variables**
+   - In the Vercel project settings, add your environment variables:
+     - `NEXT_PUBLIC_SUPABASE_URL`
+     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+4. **Deploy**
+   - Click "Deploy"
+   - Vercel will automatically detect Next.js and use the correct build settings
+
+### Option 2: Deploy via Vercel CLI
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+### Environment Variables
+
+Make sure to set these environment variables in your Vercel project settings:
+
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+
+You can find these values in your Supabase project settings under API.
+
+### Automatic Deployments
+
+Once connected, Vercel will automatically deploy:
+
+- **Production**: Every push to the `main` branch
+- **Preview**: Every push to other branches or pull requests
 
 ---
 
