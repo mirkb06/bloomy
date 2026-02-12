@@ -54,11 +54,11 @@ export default function BouquetCustomizer() {
 
   return (
     <div className="flex flex-col mx-auto max-w-screen-lg animate-fade-in">
-      {/* Controls section */}
-      <div className="p-6 md:p-10 bg-white/30 backdrop-blur-sm rounded-[40px] border border-white/50 shadow-sm mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">Bundle & Wrap</h2>
+      {/* Controls section - Sticky */}
+      <div className="sticky top-0 z-40 p-4 md:p-6 bg-white/30 backdrop-blur-sm rounded-[40px] border border-white/50 shadow-sm mb-4">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Bundle & Wrap</h2>
 
-        <div className="flex flex-col gap-10 items-center">
+        <div className="flex flex-col gap-6 items-center">
           {/* Main Action Buttons */}
           <div className="flex flex-wrap justify-center gap-6">
             <button
@@ -104,18 +104,25 @@ export default function BouquetCustomizer() {
         </div>
       </div>
 
+      {/* Helper instruction text */}
+      <div className="text-center mb-4 animate-fade-in">
+        <p className="text-sm text-gray-600 italic">
+          👆 Use the above filters to customize your bouquet
+        </p>
+      </div>
+
       {/* Visualization area */}
-      <div className="flex relative justify-center items-center py-4 my-8 pb-40 lg:scale-110">
-        <div className="relative w-[500px] min-h-[410px] flex items-center justify-center">
+      <div className="flex relative justify-center items-center py-4 pb-40 lg:scale-110 overflow-hidden">
+        <div className="relative w-full max-w-[500px] min-h-[410px] flex items-center justify-center scale-75 sm:scale-90 md:scale-100">
           {/* Wrapper layer */}
           {bouquet.wrapper && (
-            <div className="absolute top-[60%] left-1/2 z-0 transform -translate-x-1/2 w-full max-w-[550px] pointer-events-none drop-shadow-2xl">
+            <div className="absolute top-[52%] sm:top-[54%] md:top-[56%] left-1/2 z-0 transform -translate-x-1/2 w-full max-w-[550px] pointer-events-none drop-shadow-2xl">
               <Image
                 src={`/color/wrapper/${bouquet.wrapper}.png`}
                 alt="bouquet wrapper"
                 width={800}
                 height={600}
-                className="object-contain"
+                className="object-contain w-full h-auto"
                 priority
               />
             </div>
@@ -127,7 +134,7 @@ export default function BouquetCustomizer() {
             alt="bush background"
             width={600}
             height={500}
-            className="absolute top-1/2 left-1/2 z-[5] transform -translate-x-1/2 -translate-y-1/2 opacity-90 drop-shadow-xl"
+            className="absolute top-[48%] left-1/2 z-[5] transform -translate-x-1/2 -translate-y-1/2 opacity-90 drop-shadow-xl w-full max-w-[600px] h-auto"
             priority
           />
 
@@ -177,6 +184,7 @@ export default function BouquetCustomizer() {
               alt="bush top"
               width={600}
               height={500}
+              className="w-full max-w-[600px] h-auto"
               priority
             />
           </div>

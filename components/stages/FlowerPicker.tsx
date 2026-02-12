@@ -24,17 +24,30 @@ export default function FlowerPicker() {
 
   return (
     <TooltipProvider disableHoverableContent delayDuration={0}>
-      <div className="h-full text-center">
+      <div className="h-full text-center relative">
+        {/* Fixed Flower Count Indicator - Always visible at top */}
+        {totalFlowers > 0 && (
+          <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-white via-white/95 to-white/80 backdrop-blur-md py-4 shadow-md border-b border-pink-100">
+            <div className="flex items-center justify-center gap-3 flex-wrap px-4">
+              <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-pink-50 to-pink-100/50 rounded-full border-2 border-pink-200 shadow-sm">
+                <span className="text-base font-bold text-pink-600">{totalFlowers}</span>
+                <span className="text-sm text-gray-500">/</span>
+                <span className="text-base font-bold text-gray-400">10</span>
+                <span className="text-xs text-gray-600 ml-1 font-medium">flowers selected</span>
+              </div>
+              <p className="text-[11px] uppercase tracking-wider text-pink-600 font-bold animate-pulse">
+                {totalFlowers < 6 ? `Add ${6 - totalFlowers} more to bundle` : "✓ Bundle ready!"}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Spacer to prevent content from being hidden under fixed header */}
+        {totalFlowers > 0 && <div className="h-16" />}
+
         {/* Page title and description */}
         <div className="mb-10 animate-fade-in">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Pick your Blooms</h2>
-          <div className="flex flex-col items-center gap-1">
-            {totalFlowers > 0 && (
-              <p className="mt-4 text-[10px] uppercase tracking-wider text-pink-500 font-bold animate-pulse">
-                {totalFlowers < 6 ? `Add ${6 - totalFlowers} more to bundle` : "Bundle ready!"}
-              </p>
-            )}
-          </div>
         </div>
 
         {/* Grid of available flowers */}
